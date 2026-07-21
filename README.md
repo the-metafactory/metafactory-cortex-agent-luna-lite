@@ -1,8 +1,8 @@
-# Luna-Light
+# Luna-Lite
 
 **A ready-to-run assistant for your own [cortex](https://github.com/the-metafactory/cortex) stack — one `arc install` away.**
 
-Luna-Light is the front door to running your own assistant. It ships a clean,
+Luna-Lite is the front door to running your own assistant. It ships a clean,
 capable, general-purpose **Luna** persona + agent fragment that installs onto a
 cortex stack you control. No Discord app required, no private data, no
 federation — a real assistant you can talk to, and grow into your own.
@@ -27,14 +27,14 @@ cortex stack create <your-slug> --apply     # scaffolds a config-split stack
 # stand up the bus + start the daemon — see cortex docs (bootstrap runbook)
 ```
 
-Luna-Light requires **cortex >= 6.9.0**.
+Luna-Lite requires **cortex >= 6.9.0**.
 
 ## Install
 
 ```bash
-arc install luna-light
+arc install luna-lite
 # or, from source:
-arc install https://github.com/the-metafactory/metafactory-bundle-luna-light
+arc install https://github.com/the-metafactory/metafactory-bundle-luna-lite
 ```
 
 This drops the persona + fragment into `~/.config/cortex/`, then signals your

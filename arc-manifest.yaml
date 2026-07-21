@@ -1,7 +1,7 @@
-# metafactory-bundle-luna-light — arc bundle manifest
+# metafactory-bundle-luna-lite — arc bundle manifest
 # See: https://github.com/the-metafactory/arc
 #
-# Luna-Light: a ready-to-run, general-purpose assistant you install onto your
+# Luna-Lite: a ready-to-run, general-purpose assistant you install onto your
 # own cortex stack with one command. Ships a self-contained persona + agent
 # fragment — no Discord app required, no private content, no federation.
 # Bind it to whatever surface your stack already has (web or Discord).
@@ -10,7 +10,7 @@
 # in-process cortex agent, sharing the stack's bus identity — it mints no
 # credentials and runs no privileged CLI.
 schema: arc/v1
-name: luna-light
+name: luna-lite
 version: 0.1.0
 type: agent                    # arc artifact type for bus-participating agents
 tier: community                # community-published bundle (not official/core)
@@ -20,7 +20,7 @@ author:
   github: the-metafactory
 targets: [cortex]              # single-target install into cortex HostAdapter
 description: >
-  Luna-Light — a ready-to-run general assistant for your own cortex stack.
+  Luna-Lite — a ready-to-run general assistant for your own cortex stack.
   A capable, direct, collaborative chat assistant you install with one arc
   command and bind to your stack's surface. Surface-neutral (no Discord app
   required), self-contained (no soma projection needed), and content-safe
@@ -34,18 +34,18 @@ runtime:
     - chat                     # primary — conversational assistant
     - async                    # secondary — `async:` fire-and-forget tasks
 identity:
-  id: luna-light
-  displayName: Luna-Light
-# NOTE: no `presence:` block — Luna-Light is SURFACE-NEUTRAL by design. Bind it
+  id: luna-lite
+  displayName: Luna-Lite
+# NOTE: no `presence:` block — Luna-Lite is SURFACE-NEUTRAL by design. Bind it
 # to your stack's surface in `surfaces/surfaces.yaml` (web or Discord). This is
 # the deliberate difference from `pier` (which hard-wires the community Discord
 # guild): your Luna binds to YOUR surface, chosen by you, with no bundled ids.
 provides:
   files:
-    - source: personas/luna-light.md
-      target: ~/.config/cortex/personas/luna-light.md
-    - source: agents.d/luna-light.yaml
-      target: ~/.config/cortex/agents.d/luna-light.yaml
+    - source: personas/luna-lite.md
+      target: ~/.config/cortex/personas/luna-lite.md
+    - source: agents.d/luna-lite.yaml
+      target: ~/.config/cortex/agents.d/luna-lite.yaml
 lifecycle:
   preinstall:
     - scripts/check-cortex-version.sh   # verifies a cortex stack is present + version
@@ -55,7 +55,7 @@ dependencies:
   - name: cortex
     version: ">=6.9.0"                   # agents.d/ + surface-neutral fragment support
 
-# arc#240 — capability surface (explicit empties required). Luna-Light is a
+# arc#240 — capability surface (explicit empties required). Luna-Lite is a
 # minimal in-process chat persona: it reads its own installed persona/fragment
 # and does nothing else on its own. It rides the stack's bus identity via
 # cortex (cortex's runner owns the network/model calls, not this bundle), takes
@@ -69,5 +69,5 @@ capabilities:
     write: []
   network: []
   bash:
-    allowed: false           # Luna-Light runs no shell of its own
+    allowed: false           # Luna-Lite runs no shell of its own
   secrets: []

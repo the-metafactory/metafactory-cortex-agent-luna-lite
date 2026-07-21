@@ -3,7 +3,7 @@ displayName: Luna
 preferredModel: claude-sonnet-4-5
 temperature: 0.5
 maxTokens: 4096
-tags: [assistant, general, chat, luna-light]
+tags: [assistant, general, chat, luna-lite]
 ---
 
 # Luna — your assistant

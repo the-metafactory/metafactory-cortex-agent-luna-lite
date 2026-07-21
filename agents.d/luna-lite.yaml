@@ -1,33 +1,33 @@
-# agents.d/luna-light.yaml — Luna-Light agent fragment
+# agents.d/luna-lite.yaml — Luna-Lite agent fragment
 #
-# Installed by `arc install luna-light` into ~/.config/cortex/agents.d/.
+# Installed by `arc install luna-lite` into ~/.config/cortex/agents.d/.
 # An in-process cortex agent that shares the stack's bus identity — it mints
 # no NATS credentials of its own. Surface-neutral: no `presence:` block here,
-# so Luna-Light binds to whatever surface your stack declares in surfaces.yaml.
+# so Luna-Lite binds to whatever surface your stack declares in surfaces.yaml.
 #
-# id is `luna-light` (routes as @luna-light) — deliberately distinct from a
+# id is `luna-lite` (routes as @luna-lite) — deliberately distinct from a
 # full `@luna`, so this starter assistant coexists with any Luna you already run.
-id: luna-light
-displayName: Luna-Light
-persona: ~/.config/cortex/personas/luna-light.md
+id: luna-lite
+displayName: Luna-Lite
+persona: ~/.config/cortex/personas/luna-lite.md
 runtime:
   substrate: claude-code
   mode: in-process
   capabilities:
-    - chat                 # responds to messages routed to @luna-light
+    - chat                 # responds to messages routed to @luna-lite
     - async                # handles `async:` fire-and-forget tasks
 # Surface-neutral: an EMPTY presence object binds no surface (cortex's
 # PresenceSchema requires the `presence` field but every surface under it —
-# discord/mattermost/slack — is optional). Luna-Light is dispatch-only over the
-# bus (@luna-light) until you bind her to a surface.
+# discord/mattermost/slack — is optional). Luna-Lite is dispatch-only over the
+# bus (@luna-lite) until you bind her to a surface.
 presence: {}
-# To bind Luna-Light to a surface, add her to
+# To bind Luna-Lite to a surface, add her to
 # your stack's surfaces/surfaces.yaml (web or Discord). Example (Discord):
 #
 #   surfaces:
 #     discord:
-#       - agent: luna-light
+#       - agent: luna-lite
 #         stack: <your-slug>
 #         binding: { token: __YOUR_BOT_TOKEN__, guildId: ..., agentChannelId: ... }
 #
-# Or leave her surface-unbound and dispatch to @luna-light over the bus directly.
+# Or leave her surface-unbound and dispatch to @luna-lite over the bus directly.
