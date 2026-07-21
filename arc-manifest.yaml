@@ -42,8 +42,10 @@ identity:
 # guild): your Luna binds to YOUR surface, chosen by you, with no bundled ids.
 provides:
   files:
-    persona.md: ~/.config/cortex/personas/luna-light.md
-    agent.yaml: ~/.config/cortex/agents.d/luna-light.yaml
+    - source: personas/luna-light.md
+      target: ~/.config/cortex/personas/luna-light.md
+    - source: agents.d/luna-light.yaml
+      target: ~/.config/cortex/agents.d/luna-light.yaml
 lifecycle:
   preinstall:
     - scripts/check-cortex-version.sh   # verifies a cortex stack is present + version
