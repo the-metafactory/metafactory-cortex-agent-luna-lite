@@ -16,7 +16,12 @@ runtime:
   capabilities:
     - chat                 # responds to messages routed to @luna-light
     - async                # handles `async:` fire-and-forget tasks
-# No `presence:` — see the manifest. To bind Luna-Light to a surface, add her to
+# Surface-neutral: an EMPTY presence object binds no surface (cortex's
+# PresenceSchema requires the `presence` field but every surface under it —
+# discord/mattermost/slack — is optional). Luna-Light is dispatch-only over the
+# bus (@luna-light) until you bind her to a surface.
+presence: {}
+# To bind Luna-Light to a surface, add her to
 # your stack's surfaces/surfaces.yaml (web or Discord). Example (Discord):
 #
 #   surfaces:
