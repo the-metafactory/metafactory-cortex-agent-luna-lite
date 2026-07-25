@@ -11,7 +11,7 @@
 # credentials and runs no privileged CLI.
 schema: arc/v1
 name: luna-lite
-version: 0.1.0
+version: 0.1.1
 type: agent                    # arc artifact type for bus-participating agents
 tier: community                # community-published bundle (not official/core)
 license: MIT
