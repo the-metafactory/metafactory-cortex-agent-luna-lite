@@ -1,4 +1,4 @@
-# metafactory-bundle-luna-lite — arc bundle manifest
+# metafactory-cortex-agent-luna-lite — arc bundle manifest
 # See: https://github.com/the-metafactory/arc
 #
 # Luna-Lite: a ready-to-run, general-purpose assistant you install onto your
@@ -51,9 +51,17 @@ lifecycle:
     - scripts/check-cortex-version.sh   # verifies a cortex stack is present + version
   postinstall:
     - scripts/signal-cortex-reload.sh   # daemon picks up luna.yaml from agents.d/
-dependencies:
-  - name: cortex
-    version: ">=6.9.0"                   # agents.d/ + surface-neutral fragment support
+# depends_on.packages — the arc AUTO-INSTALL contract (cortex#2028): arc clones
+# + installs each {name, repo} on `arc install luna-lite`, so cortex lands
+# automatically when missing (arc only auto-installs deps that carry a `repo:`
+# field; see arc/src/commands/install.ts). The version floor mirrors the
+# preinstall gate (scripts/check-cortex-version.sh), which stays the fail-closed
+# backstop for version skew.
+depends_on:
+  packages:
+    - name: cortex
+      version: ">=6.9.0"                 # agents.d/ + surface-neutral fragment support
+      repo: "https://github.com/the-metafactory/cortex"
 
 # arc#240 — capability surface (explicit empties required). Luna-Lite is a
 # minimal in-process chat persona: it reads its own installed persona/fragment

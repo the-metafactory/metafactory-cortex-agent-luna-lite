@@ -34,7 +34,7 @@ Luna-Lite requires **cortex >= 6.9.0**.
 ```bash
 arc install luna-lite
 # or, from source:
-arc install https://github.com/the-metafactory/metafactory-bundle-luna-lite
+arc install https://github.com/the-metafactory/metafactory-cortex-agent-luna-lite
 ```
 
 This drops the persona + fragment into `~/.config/cortex/`, then signals your
